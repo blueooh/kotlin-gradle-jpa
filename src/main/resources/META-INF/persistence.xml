@@ -6,6 +6,8 @@
         <class>model.Team</class>
         <class>model.Item</class>
         <class>model.Album</class>
+        <class>model.Parent</class>
+        <class>model.Child</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

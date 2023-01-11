@@ -1,4 +1,6 @@
+import model.Child
 import model.Member
+import model.Parent
 import model.Team
 import javax.persistence.Persistence
 
@@ -10,11 +12,14 @@ fun main() {
 
     tx.begin()
 
-    //val newTeam = Team(name = "kakao")
-    //em.persist(newTeam)
+    val child1 = Child(name = "soeun")
+    val child2 = Child(name = "hayeon")
 
-    //val newUser = Member(userName = "andy.oh", team = newTeam)
-    //em.persist(newUser)
+    val parent = Parent()
+    parent.addChild(child1)
+    parent.addChild(child2)
+
+    em.persist(parent)
 
     val user = em.find(Member::class.java,2L)
 
