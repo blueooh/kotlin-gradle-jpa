@@ -3,9 +3,9 @@ package model
 import javax.persistence.*
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn
-class Item(
+abstract class Item(
     @Id @GeneratedValue
     private var id: Long? = null,
     private var name: String,

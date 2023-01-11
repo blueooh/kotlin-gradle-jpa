@@ -1,5 +1,6 @@
 package model
 
+import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -21,5 +22,7 @@ class Member(
 
     @ManyToOne
     @JoinColumn(name = "team_id")
-    var team: Team? = null
-)
+    var team: Team? = null,
+
+): BaseEntity() {
+}
