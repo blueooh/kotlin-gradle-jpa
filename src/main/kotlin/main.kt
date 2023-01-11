@@ -1,4 +1,3 @@
-import model.Album
 import model.Member
 import model.Team
 import javax.persistence.Persistence
@@ -11,8 +10,15 @@ fun main() {
 
     tx.begin()
 
-    val album = Album("andy.oh", 100, "BTS")
-    em.persist(album)
+    //val newTeam = Team(name = "kakao")
+    //em.persist(newTeam)
+
+    //val newUser = Member(userName = "andy.oh", team = newTeam)
+    //em.persist(newUser)
+
+    val user = em.find(Member::class.java,2L)
+
+    //println(user.team?.name)
 
     tx.commit()
 

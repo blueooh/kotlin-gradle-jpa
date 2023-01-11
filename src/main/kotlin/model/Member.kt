@@ -1,12 +1,7 @@
 package model
 
 import java.time.LocalDateTime
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.JoinColumn
-import javax.persistence.ManyToOne
+import javax.persistence.*
 
 @Entity
 class Member(
@@ -20,7 +15,8 @@ class Member(
     //@Column(name = "team_id")
     //var teamId: Long,
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "team_id")
     var team: Team? = null,
 
