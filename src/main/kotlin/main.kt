@@ -1,3 +1,4 @@
+import model.Album
 import model.Member
 import model.Team
 import javax.persistence.Persistence
@@ -7,16 +8,11 @@ fun main() {
     val em = emf.createEntityManager()
 
     val tx = em.transaction
+
     tx.begin()
 
-    //val newTeam = Team(name = "kakao")
-    //em.persist(newTeam)
-    val newMember = Member(userName = "hayeon.oh")
-    em.persist(newMember)
-
-    val newTeam = Team(name = "naver")
-    newTeam.members.add(newMember)
-    em.persist(newTeam)
+    val album = Album("andy.oh", 100, "BTS")
+    em.persist(album)
 
     tx.commit()
 

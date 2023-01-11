@@ -4,7 +4,6 @@ import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
-import javax.persistence.JoinColumn
 import javax.persistence.OneToMany
 
 @Entity
@@ -15,7 +14,6 @@ class Team (
 
     var name: String,
 
-    @OneToMany
-    @JoinColumn(name = "team")
+    @OneToMany(mappedBy = "team")
     var members: MutableList<Member> = mutableListOf()
 )
