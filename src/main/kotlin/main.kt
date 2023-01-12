@@ -12,18 +12,8 @@ fun main() {
 
     tx.begin()
 
-    val child1 = Child(name = "soeun")
-    val child2 = Child(name = "hayeon")
-
-    val parent = Parent()
-    parent.addChild(child1)
-    parent.addChild(child2)
-
-    em.persist(parent)
-
-    val user = em.find(Member::class.java,2L)
-
-    //println(user.team?.name)
+    val team = em.find(Team::class.java, 1L)
+    team.name = "naver"
 
     tx.commit()
 

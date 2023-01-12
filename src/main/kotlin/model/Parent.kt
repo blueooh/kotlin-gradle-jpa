@@ -13,7 +13,7 @@ class Parent (
     @Column(name = "parent_id")
     var id: Long? = null,
 
-    @OneToMany(mappedBy = "parent", cascade = [CascadeType.ALL])
+    @OneToMany(mappedBy = "parent", cascade = [CascadeType.ALL], orphanRemoval = true)
     var children: MutableList<Child> = mutableListOf()
 ) {
     fun addChild(child: Child) {
