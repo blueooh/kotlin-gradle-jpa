@@ -23,5 +23,13 @@ class Member(
     @JoinColumn(name = "team_id")
     var team: Team? = null,
 
+    @ElementCollection
+    @CollectionTable(name = "favorite_food", joinColumns = [JoinColumn(name = "member_id")])
+    var favoriteFoods: Set<String> = setOf(),
+
+    @ElementCollection
+    @CollectionTable(name = "address", joinColumns = [JoinColumn(name = "member_id")])
+    var addressHistory: MutableList<Address> = mutableListOf()
+
 ): BaseEntity() {
 }

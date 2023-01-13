@@ -9,9 +9,8 @@ fun main() {
 
     tx.begin()
 
-    val address = Address("Young-in", 1111)
-    val member = Member(userName = "andy.oh", address = address)
-    em.persist(member)
+    val member = em.find(Member::class.java, 1L)
+    member.addressHistory.remove(Address("Young-in", 1111))
 
     tx.commit()
 
