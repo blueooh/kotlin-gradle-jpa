@@ -1,7 +1,4 @@
-import model.Child
-import model.Member
-import model.Parent
-import model.Team
+import model.*
 import javax.persistence.Persistence
 
 fun main() {
@@ -12,8 +9,9 @@ fun main() {
 
     tx.begin()
 
-    val team = em.find(Team::class.java, 1L)
-    team.name = "naver"
+    val address = Address("Young-in", 1111)
+    val member = Member(userName = "andy.oh", address = address)
+    em.persist(member)
 
     tx.commit()
 

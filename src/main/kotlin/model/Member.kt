@@ -15,6 +15,9 @@ class Member(
     //@Column(name = "team_id")
     //var teamId: Long,
 
+    @Embedded
+    var address: Address,
+
     @ManyToOne(fetch = FetchType.LAZY)
     //@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "team_id")
