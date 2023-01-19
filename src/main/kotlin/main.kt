@@ -9,10 +9,18 @@ fun main() {
 
     tx.begin()
 
-    val member = em.find(Member::class.java, 1L)
-    member.addressHistory.remove(Address("Young-in", 1111))
+    val address = Address(city = "Young-in", zipcode = 1111)
+    val member1 = Member(userName = "andy.oh", address = address)
+    em.persist(member1)
 
     em.createQuery("select m from Member as m").resultList
+
+    val memberList = em.createNamedQuery("Member.findByUsername", Member::class.java)
+        .setParameter("userName", "andy.oh")
+        .resultList
+    memberList.forEach {
+        println("--> ${it.userName}")
+    }
 
     tx.commit()
 

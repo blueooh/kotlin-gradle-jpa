@@ -4,6 +4,10 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
+@NamedQuery(
+    name = "Member.findByUsername",
+    query = "select m from Member m where m.userName = :userName"
+)
 class Member(
     @Id @GeneratedValue
     @Column(name = "member_id")
