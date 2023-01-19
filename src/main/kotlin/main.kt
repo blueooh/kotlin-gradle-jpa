@@ -12,6 +12,8 @@ fun main() {
     val member = em.find(Member::class.java, 1L)
     member.addressHistory.remove(Address("Young-in", 1111))
 
+    em.createQuery("select m from Member as m").resultList
+
     tx.commit()
 
     em.close()
